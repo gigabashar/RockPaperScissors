@@ -117,7 +117,7 @@ header > h1 {
 
 .game-over {
   position: relative;
-  min-width: 500px;
+  min-width: 50%;
   min-height: 300px;
   text-align: center;
   margin: 150px auto;
@@ -160,4 +160,27 @@ header > h1 {
 
 dialog::backdrop {
   background-color: rgb(10 0 25 /0.6);
+}
+
+/* responsive */
+@media screen and (max-width: 800px) {
+  .game-over h2 {
+    margin: 20px 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .choices {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 381px) {
+  .game-over h2 {
+    font-size: 30px;
+  }
+  .game-over p {
+    font-size: 20px;
+  }
 }

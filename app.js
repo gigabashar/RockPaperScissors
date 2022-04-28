@@ -9,6 +9,8 @@ const paper_div = document.getElementById("p");
 const scissors_div = document.getElementById("s");
 const choice = document.querySelectorAll(".choice");
 const gameOver_dialog = document.querySelector(".game-over");
+const gameOver_dialog_h2 = document.querySelector(".game-over h2");
+const gameOver_dialog_p = document.querySelector(".game-over p");
 const continue_button = document.querySelector(".continue-button");
 
 function getComputerChoice() {
@@ -21,13 +23,32 @@ function Winner() {
   choice.forEach(function (e) {
     e.addEventListener("mouseup", () => {
       setTimeout(() => {
-        if (userScore === 3 || computerScore === 3) {
+        if (userScore === 3) {
           userScore = 0;
           computerScore = 0;
           userScore_span.textContent = userScore;
           computerScore_span.textContent = computerScore;
+          gameOver_dialog_h2.textContent = `You won the game!`;
+          gameOver_dialog_p.textContent = `Congratulations!`;
           gameOver_dialog.showModal();
         }
+        if (computerScore === 3) {
+          userScore = 0;
+          computerScore = 0;
+          userScore_span.textContent = userScore;
+          computerScore_span.textContent = computerScore;
+          gameOver_dialog_h2.textContent = `You lost the game :(`;
+          gameOver_dialog_p.textContent = `Try again!`;
+          gameOver_dialog.showModal();
+        }
+
+        // if (userScore === 3 || computerScore === 3) {
+        //   userScore = 0;
+        //   computerScore = 0;
+        //   userScore_span.textContent = userScore;
+        //   computerScore_span.textContent = computerScore;
+        //   gameOver_dialog.showModal();
+        // }
       }, 300);
     });
   });
